@@ -13,7 +13,6 @@ from _preexec import keywords_handler
 from executors.alarm import alarm_executor
 from executors.automation import auto_helper
 from executors.conditions import conditions
-from executors.connection import wifi_connector
 from executors.crontab import crontab_executor
 from executors.others import photo
 from executors.remind import reminder_executor
@@ -32,13 +31,6 @@ from modules.timer.repeated_timer import RepeatedTimer
 from modules.utils import shared, support, util
 
 db = database.Database(database=models.fileio.base_db)
-
-
-def background_tasks() -> NoReturn:
-    """Initiates background tasks in a thread and runs Wi-Fi connector concurrently."""
-    config.multiprocessing_logger(filename=os.path.join('logs', 'background_tasks_%d-%m-%Y.log'))
-    list(repeated_tasks())
-    wifi_connector()
 
 
 def repeated_tasks() -> Iterable[RepeatedTimer]:

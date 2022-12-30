@@ -1,6 +1,11 @@
 Release Notes
 =============
 
+6.8.4 (12/30/2022)
+------------------
+- Bug fix on `background_tasks`
+- Move background tasks from process to thread as the real problem was in speaker module
+
 6.8.3 (12/29/2022)
 ------------------
 - Bug fix on `background_tasks`
